@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e9efff, #dfe8fd);
+    color: #0d2b7e;
+    overflow-x: hidden;
+}
+
+/* TOPO */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo-area img {
+    width: 52px;
+    height: 52px;
+}
+
+.perfil-btn {
+    width: 52px;
+    height: 52px;
+    background: #e7c3ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* SEÇÃO HERO */
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.hero-logo {
+   width: clamp(10px, 2vw, 20px);
+}
+
+.changing-text {
+    font-size: 48px;
+    font-weight: 800;
+    max-width: 900px;
+    margin: 0 auto 20px;
+    transition: opacity 0.5s ease;
+}
+
+.scroll-hint {
+    position: fixed;
+    bottom: 20px;       /* distância do rodapé */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: #4b6cb7;     /* mesma cor que você já usa */
+    z-index: 9999;      /* sempre por cima */
+    pointer-events: none; /* não atrapalha clique de nada */
+    opacity: 0.8;       /* opcional */
+}
+
+/* SEÇÃO EXPLORAR */
+.explorar {
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.sub2 {
+    font-size: 20px;
+    color: #5770c7;
+    margin-top: 10px;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.btn-primary {
+    background: #d167c4;
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    font-size: 18px;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.btn-secundario {
+    background: transparent;
+    border: 3px solid #d167c4;
+    padding: 14px 40px;
+    border-radius: 40px;
+    font-size: 18px;
+    color: #0d2b7e;
+    cursor: pointer;
+}
