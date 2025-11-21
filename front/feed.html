@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corvinerva • Explorar</title>
+    <link rel="stylesheet" href="feed.css">
+</head>
+<body>
+
+    <!-- NAV SUPERIOR -->
+    <header class="nav">
+        <div class="logo">Corvinerva</div>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#" class="active">Explorar</a>
+            <a href="#">Salvos</a>
+        </nav>
+        <div class="search-box">
+        <input type="text" placeholder="Pesquisar...">
+        <button class="btn-search">🔍</button>
+    </div>
+        <img src="img/corvinerva-sem-fundo.png" class="perfil-icone" alt="Perfil">
+    </header>
+
+    <!-- FEED -->
+    <section class="feed-container">
+
+        <!-- CARD DE PUBLICAÇÃO -->
+        <div class="post-card">
+
+            <!-- Cabeçalho -->
+            <div class="post-header">
+                <img src="img/professor1.png" class="post-user-img">
+                <div>
+                    <h3 class="user-name">Prof. Camila Rocha</h3>
+                    <p class="user-type oficial">Publicação oficial</p>
+                </div>
+
+                <button class="btn-seguir">Seguir</button>
+            </div>
+
+            <!-- Conteúdo da Postagem -->
+            <p class="post-text">
+                📚 Novo material de apoio para Historia do Brasil liberado!
+                Inclui exercícios e um PDF com mapas mentais.
+            </p>
+
+            <!-- Anexos -->
+            <div class="post-anexos">
+                <a href="#" class="anexo-item">📄 PDF — Mapas Mentais</a>
+                <a href="#" class="anexo-item">🔗 Link — Material extra</a>
+            </div>
+
+            <!-- Ações -->
+            <div class="post-actions">
+                <button class="like-btn">👍 Curtir</button>
+                <button class="comment-btn">💬 Comentar</button>
+                <button class="save-btn">⭐ Salvar</button>
+                <button class="share-btn">🔗 Compartilhar</button>
+                <button class="report-btn">⚠ Denunciar</button>
+            </div>
+
+            <!-- Área de comentários -->
+            <div class="comentarios">
+                <input type="text" placeholder="Escreva um comentário...">
+                <button class="enviar-comentario">Enviar</button>
+
+                <div class="lista-comentarios"></div>
+            </div>
+
+        </div>
+
+        <!-- EXEMPLO DE OUTRA POSTAGEM -->
+        <div class="post-card">
+
+            <div class="post-header">
+                <img src="img/aluno2.png" class="post-user-img">
+                <div>
+                    <h3 class="user-name">Mariana Silva</h3>
+                    <p class="user-type estudante">Estudante</p>
+                </div>
+                <button class="btn-seguir">Seguir</button>
+            </div>
+
+            <p class="post-text">
+                💡 Alguém tem recomendações de livros para o trabalho de Biologia celular?
+            </p>
+
+            <div class="post-actions">
+                <button class="like-btn">👍 Curtir</button>
+                <button class="comment-btn">💬 Comentar</button>
+                <button class="save-btn">⭐ Salvar</button>
+                <button class="share-btn">🔗 Compartilhar</button>
+                <button class="report-btn">⚠ Denunciar</button>
+            </div>
+
+            <div class="comentarios">
+                <input type="text" placeholder="Escreva um comentário...">
+                <button class="enviar-comentario">Enviar</button>
+
+                <div class="lista-comentarios"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+<script src="feed.js"></script>
+</body>
+</html>
