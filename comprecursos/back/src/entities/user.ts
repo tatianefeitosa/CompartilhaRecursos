@@ -1,7 +1,11 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 
-/*import { Produto } from "./Produto";
-import { Favorito } from "./Favorito";*/
+import { Post } from "./Post";
+import { Comment } from "./Comment";
+import { Like } from "./Like";
+import { Favorite } from "./Favorite";
+import { Report } from "./Report";
+import { Follow } from "./Follow";
 
 export enum UserRole {
   ESTUDANTE = "estudante",
@@ -29,8 +33,25 @@ export class User {
   })
   role!: UserRole;
 
-  /*@OneToMany(() => Produto, (produto) => produto.user)
-    produtos!: Produto[];
-    @OneToMany(() => Favorito, (favorito) => favorito.user)
-    favoritos!: Favorito[];*/
+    
+  @OneToMany(() => Post, (post) => post.autor)
+  posts!: Post[];
+
+  @OneToMany(() => Comment, (comment) => comment.autor)
+  comentarios!: Comment[];
+
+  @OneToMany(() => Like, (like) => like.usuario)
+  likes!: Like[];
+
+  @OneToMany(() => Favorite, (fav) => fav.usuario)
+  favoritos!: Favorite[];
+
+  @OneToMany(() => Report, (rep) => rep.denunciante)
+  reports!: Report[];
+
+  @OneToMany(() => Follow, (follow) => follow.seguidor)
+  seguindo!: Follow[];
+
+  @OneToMany(() => Follow, (follow) => follow.seguido)
+  seguidores!: Follow[];
 }

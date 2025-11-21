@@ -1,7 +1,8 @@
 ### Variáveis
 @baseUrl = http://localhost:3000
 @adminToken = token_admin
-@usuarioToken = token_usuario
+@estudanteToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOiJlc3R1ZGFudGUiLCJpYXQiOjE3NjM3NjE1NDAsImV4cCI6MTc2Mzg0Nzk0MH0.fnhC9N8N5d7hdCfEkUrnJAZskbCQmYP6le-tawwAR3Y
+@professorToken = token_professor
 
 
 ### ==============================================
@@ -69,6 +70,19 @@ Content-Type: application/json
 }
 
 
-### Logout
+### Logout Admin 1
 POST {{baseUrl}}/auth/logout
-Authorization: Bearer {{usuarioToken}}
+Authorization: Bearer {{adminToken}}
+
+
+### ==============================================
+### ESTUDANTE 1
+### ==============================================
+
+POST {{baseUrl}}/posts
+Authorization: Bearer {{estudanteToken}}
+Content-Type: application/json
+
+{
+  "conteudo": "Este é o primeiro post do estudante João Silva."
+}
