@@ -1,0 +1,289 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f3f4f8;
+    color: #1d2a57;
+}
+
+/* HEADER ---------------------------- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: #eef0f6;
+    align-items: center;
+}
+
+.header .logo {
+    width: 45px;
+    margin-right: 10px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+
+/* CARD DO PERFIL ---------------------------- */
+.profile-card {
+    background: #fff;
+    margin: 25px;
+    padding: 30px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.profile-avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+}
+
+.tag {
+    background: #c48ad0;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.edit-btn {
+    background: #ffffff;
+    border: 2px solid #1d2a57;
+    padding: 10px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+/* PROGRESSO ---------------------------- */
+.progress-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.progress-circle {
+    position: relative;
+    width: 140px;
+    margin: 0 auto;
+}
+
+svg {
+    width: 140px;
+    height: 140px;
+}
+
+circle {
+    fill: none;
+    stroke-width: 10;
+    stroke: #e6e6e6;
+}
+
+#progress-bar {
+    stroke: url(#grad);
+    stroke-linecap: round;
+    stroke-dasharray: 377;
+    stroke-dashoffset: 377;
+    transition: all 1.8s ease;
+}
+
+.progress-value {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* ESTATÍSTICAS ---------------------------- */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+    padding: 20px;
+}
+
+.stat-box {
+    background: #fff;
+    padding: 25px;
+    width: 28%;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.stat-box h3 {
+    font-size: 32px;
+    margin: 5px 0;
+}
+
+/* METAS ---------------------------- */
+.goals {
+    background: #fff;
+    margin: 20px;
+    padding: 25px;
+    border-radius: 18px;
+}
+
+.goals-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-goal {
+    background: #1d2a57;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+}
+
+.goal-item {
+    margin-top: 25px;
+}
+
+.progress-bar {
+    background: #d9e9f4;
+    height: 10px;
+    border-radius: 20px;
+    margin: 10px 0;
+}
+
+.progress-bar div {
+    height: 10px;
+    background: #1d2a57;
+    border-radius: 20px;
+}
+
+/* PUBLICAÇÕES ---------------------------- */
+.post-section {
+    margin: 35px;
+}
+
+.create-post {
+    background: #fff;
+    padding: 20px;
+    border-radius: 18px;
+}
+
+.create-post textarea {
+    width: 100%;
+    height: 80px;
+    border: none;
+    padding: 15px;
+    font-size: 15px;
+    resize: none;
+    background: #f5f7fb;
+    border-radius: 12px;
+}
+
+.publish-btn {
+    margin-top: 12px;
+    background: #1d2a57;
+    padding: 12px 20px;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.post {
+    background: #fff;
+    padding: 20px;
+    border-radius: 18px;
+    margin-top: 20px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.post-avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+.post-text {
+    margin: 15px 0;
+}
+
+.post-actions button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.attachments {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 12px;
+}
+
+.attach-btn,
+.link-btn,
+.img-btn,
+.pdf-btn {
+    background: #eef0f6;
+    border: none;
+    font-size: 22px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.attach-btn:hover,
+.link-btn:hover,
+.img-btn:hover,
+.pdf-btn:hover {
+    transform: scale(1.12);
+    background: #d2d8ec;
+}
+
+/* Preview */
+.attachment-preview {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.preview-item {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 10px;
+    border: 2px solid #dce0ea;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+}
+
+.preview-item img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.preview-remove {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
