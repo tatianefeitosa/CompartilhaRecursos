@@ -50,6 +50,8 @@ nav a.active {
     gap: 6px;
     width: 100%;
     max-width: 300px;
+    margin-left: 100px;
+    
 }
 
 .search-box input {
@@ -66,6 +68,7 @@ nav a.active {
     cursor: pointer;
     font-size: 16px;
 }
+
 
 /* FEED */
 .feed-container {
