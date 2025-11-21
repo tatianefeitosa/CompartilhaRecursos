@@ -2,6 +2,7 @@ import "reflect-metadata";
 import express from "express";
 import passport from "./config/passport";
 import { initializeDatabase } from "./config/database";
+import cors from "cors";
 
 // Importar rotas
 import authRoutes from "./routes/auth";
@@ -14,6 +15,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middlewares
+app.use(cors());
 app.use(express.json());
 app.use(passport.initialize());
 
