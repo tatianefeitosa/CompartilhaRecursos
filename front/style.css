@@ -27,9 +27,9 @@ body {
     margin: 0;
     padding: 0; /* Remova o padding-top se adicionou */
     background-color: #f0f2f5;
-    display: flex;
+   /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     min-height: 100vh;
 }
 
