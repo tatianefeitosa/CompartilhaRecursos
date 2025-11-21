@@ -26,7 +26,8 @@ Content-Type: application/json
 {
 "nome": "João Silva",
 "email": "joao@email.com",
-"senha": "senha123"
+"senha": "senha123",
+"role": "estudante"
 }
 
 ### Registrar Professor 1
@@ -36,7 +37,8 @@ Content-Type: application/json
 {
 "nome": "Maria Santos",
 "email": "maria@email.com",
-"senha": "senha123"
+"senha": "senha123",
+"role": "professor"
 }
 
 ### Login Admin 1
