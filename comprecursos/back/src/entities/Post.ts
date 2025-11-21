@@ -18,8 +18,14 @@ export class Post {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column()
-  conteudo!: string;
+  @Column({ type: "text", nullable: true })
+  texto!: string | null;
+
+  @Column("simple-array", { nullable: true })
+  links!: string[] | null;
+
+  @Column("simple-array", { nullable: true })
+  arquivos!: string[] | null; // URLs ou caminhos dos arquivos
 
   @ManyToOne(() => User, (user) => user.posts, { onDelete: "CASCADE" })
   autor!: User;
