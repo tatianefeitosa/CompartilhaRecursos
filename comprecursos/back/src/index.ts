@@ -24,6 +24,7 @@ app.use(express.json());
 app.use(passport.initialize());
 
 // Rotas
+app.use("/uploads", express.static("uploads")); // Servir arquivos estáticos da pasta uploads
 app.use("/auth", authRoutes);
 app.use("/posts", postRoutes);
 app.use("/comments", commentRoutes);

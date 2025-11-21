@@ -76,13 +76,69 @@ Authorization: Bearer {{adminToken}}
 
 
 ### ==============================================
-### ESTUDANTE 1
+### ESTUDANTE 1 POST
 ### ==============================================
 
+### Criar Post (sem arquivos)
 POST {{baseUrl}}/posts
 Authorization: Bearer {{estudanteToken}}
-Content-Type: application/json
+Content-Type: multipart/form-data; boundary=MyBoundary
 
-{
-  "conteudo": "Este é o primeiro post do estudante João Silva."
-}
+--MyBoundary
+Content-Disposition: form-data; name="texto"
+
+Meu post com links
+--MyBoundary
+Content-Disposition: form-data; name="links"
+
+["https://google.com", "https://youtube.com"]
+--MyBoundary--
+
+
+### Criar Post (com upload de arquivos)
+POST {{baseUrl}}/posts
+Authorization: Bearer {{estudanteToken}}
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="texto"
+
+Meus post com upload de arquivos!
+--MyBoundary
+Content-Disposition: form-data; name="links"
+
+["https://exemplo.com/resource"]
+--MyBoundary
+Content-Disposition: form-data; name="arquivos"; filename="imagem1.png"
+Content-Type: image/png
+
+< ./uploads_test/imagem1.png
+--MyBoundary
+Content-Disposition: form-data; name="arquivos"; filename="doc1.pdf"
+Content-Type: application/pdf
+
+< ./uploads_test/doc1.pdf
+--MyBoundary--
+
+
+### Editar Post (atualizar texto, links e enviar novos arquivos)
+PUT  {{baseUrl}}/posts/1
+Authorization: Bearer {{estudanteToken}}
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="texto"
+
+Texto atualizado do post!
+--MyBoundary--
+
+### Deletar Post
+DELETE {{baseUrl}}/posts/2
+Authorization: Bearer {{estudanteToken}}
+
+### ==============================================
+
+
+### ==============================================
+### ESTUDANTE 1 
+### ==============================================
