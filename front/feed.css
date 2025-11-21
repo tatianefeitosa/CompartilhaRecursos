@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7ff;
+}
+
+/* NAV */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: rgba(240, 240, 255, 0.65);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 22px;
+    color: #4454b2;
+}
+
+nav a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #5661c2;
+}
+
+nav a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.perfil-icone {
+    width: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* SEARCH BOX */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #eef1ff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    gap: 6px;
+    width: 100%;
+    max-width: 300px;
+    margin-left: 100px;
+    
+}
+
+.search-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+}
+
+.btn-search {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+/* FEED */
+.feed-container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.post-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 3px 10px #00000015;
+    margin-bottom: 25px;
+}
+
+/* Cabeçalho */
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-user-img {
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-name {
+    margin: 0;
+}
+
+.user-type {
+    margin: 0;
+    font-size: 13px;
+    color: #7a7a7a;
+}
+
+.user-type.oficial { color: #4454b2; font-weight: bold; }
+.user-type.estudante { color: #555; }
+
+.btn-seguir {
+    background: #4454b2;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Texto */
+.post-text {
+    font-size: 15px;
+    margin: 15px 0;
+}
+
+/* Anexos */
+.post-anexos {
+    margin-bottom: 10px;
+}
+
+.anexo-item {
+    display: block;
+    background: #eef1ff;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-bottom: 6px;
+    color: #4454b2;
+    font-weight: 500;
+}
+
+/* Botões */
+.post-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.post-actions button {
+    background: #f0f3ff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Comentários */
+.comentarios {
+    margin-top: 15px;
+}
+
+.comentarios input {
+    width: 75%;
+    padding: 10px;
+    border: 1px solid #d0d0d0;
+    border-radius: 10px;
+}
+
+.enviar-comentario {
+    padding: 10px 15px;
+    background: #4454b2;
+    color: white;
+    border-radius: 10px;
+    border: none;
+}
+
+.lista-comentarios {
+    margin-top: 10px;
+}
