@@ -1,9 +1,36 @@
+.logo-area {
+    display: flex; /* Para alinhar a imagem e o texto */
+    flex-direction: column; /* Para empilhar a imagem e o texto */
+    align-items: center; /* Centraliza a imagem e o texto horizontalmente */
+    margin-bottom: 30px; /* Espaço abaixo da logo antes do "Bem-vindo" */
+}
+
+.logo-image {
+    height: 60px; /* Aumenta um pouco o tamanho da logo para destaque */
+    margin-bottom: 10px; /* Espaço entre a imagem e o nome */
+}
+
+.app-name {
+    font-size: 1.5rem; /* Aumenta o tamanho do nome */
+    font-weight: bold;
+    color: #343a40; /* Cor do texto */
+}
+
+/* Ajuste a margem do h1 se necessário, pois a logo agora está acima dele */
+.login-card h1 {
+    margin-top: 0; /* Remove a margem superior padrão do h1 */
+}
+
+/* Restante do seu CSS já existente, sem precisar mudar */
 body {
+    font-family: sans-serif;
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #e9efff, #dfe8fd);
-    color: #0d2b7e;
-    overflow-x: hidden;
+    padding: 0; /* Remova o padding-top se adicionou */
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 /* TOPO */
@@ -78,10 +105,10 @@ body {
     left: 50%;
     transform: translateX(-50%);
     font-size: 18px;
-    color: #4b6cb7;     /* mesma cor que você já usa */
+    color: #4b6cb7;     /* a cor ta errada alterar dps */
     z-index: 9999;      /* sempre por cima */
     pointer-events: none; /* não atrapalha clique de nada */
-    opacity: 0.8;       /* opcional */
+    opacity: 0.8;      
 }
 
 /* SEÇÃO EXPLORAR */

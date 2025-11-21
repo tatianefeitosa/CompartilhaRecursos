@@ -21,7 +21,7 @@ function trocarTexto(id, textos, index) {
     }, 500);
 }
 
-// Alterna texto da seção 1
+// Alterna texto 
 setInterval(() => {
     t1 = (t1 + 1) % textos1.length;
     trocarTexto("changingText1", textos1, t1);
