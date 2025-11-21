@@ -1,0 +1,72 @@
+### Variáveis
+@baseUrl = http://localhost:3000
+@adminToken = token_admin
+@usuarioToken = token_usuario
+
+
+### ==============================================
+### AUTENTICAÇÃO
+### ==============================================
+
+### Registrar Admin 1
+POST {{baseUrl}}/auth/registro
+Content-Type: application/json
+
+{
+"nome": "Admin Sistema",
+"email": "admin@email.com",
+"senha": "admin123",
+"role": "admin"
+}
+
+### Registrar Estudante 1
+POST {{baseUrl}}/auth/registro
+Content-Type: application/json
+
+{
+"nome": "João Silva",
+"email": "joao@email.com",
+"senha": "senha123"
+}
+
+### Registrar Professor 1
+POST {{baseUrl}}/auth/registro
+Content-Type: application/json
+
+{
+"nome": "Maria Santos",
+"email": "maria@email.com",
+"senha": "senha123"
+}
+
+### Login Admin 1
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+"email": "admin@email.com",
+"senha": "admin123"
+}
+
+### Login Estudante 1
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+"email": "joao@email.com",
+"senha": "senha123"
+}
+
+### Login Professor 1
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+"email": "maria@email.com",
+"senha": "senha123"
+}
+
+
+### Logout
+POST {{baseUrl}}/auth/logout
+Authorization: Bearer {{usuarioToken}}

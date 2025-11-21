@@ -4,9 +4,9 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import { Favorito } from "./Favorito";*/
 
 export enum UserRole {
-  MOD = "moderador",
   ESTUDANTE = "estudante",
   PROFESSOR = "professor",
+  ADMINISTRADOR = "admin",
 }
 
 @Entity("users")
