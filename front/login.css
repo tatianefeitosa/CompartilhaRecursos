@@ -21,13 +21,13 @@ body {
 .login-card {
     background-color: #ffffff;
     padding: 40px 30px;
-    border-radius: 20px; /* Bordas bem arredondadas, como na imagem */
+    border-radius: 20px; /* Bordas bem arredondadas */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra suave */
     text-align: center;
 }
 
 h1 {
-    color: #007bff; /* Título em azul, como na imagem */
+    color: #007bff; /* Título em azul */
     margin-bottom: 5px;
     font-size: 1.8rem;
 }
@@ -74,7 +74,7 @@ h1 {
 .btn-entrar {
     width: 100%;
     padding: 15px;
-    background-color: #007bff; /* Azul vibrante */
+    background-color: #007bff; /* Ajustar todas as cores depois */
     color: white;
     border: none;
     border-radius: 10px;
@@ -89,7 +89,7 @@ h1 {
     background-color: #0056b3;
 }
 
-/* Estilos dos Links Adicionais */
+/*  */
 .links-adicionais {
     margin-top: 25px;
 }
