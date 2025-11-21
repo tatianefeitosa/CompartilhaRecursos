@@ -218,13 +218,6 @@ circle {
     margin: 15px 0;
 }
 
-.post-actions button {
-    background: none;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    margin-right: 15px;
-}
 
 .attachments {
     display: flex;
