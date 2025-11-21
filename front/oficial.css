@@ -1,0 +1,215 @@
+/* Variáveis de Cores */
+:root {
+    --primary-blue: #007bff; /* Azul Principal */
+    --dark-blue: #324a87;   /* Azul Escuro da Capa */
+    --light-gray: #f8f9fa;  /* Fundo */
+    --text-dark: #343a40;
+    --text-muted: #6c757d;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-gray);
+    color: var(--text-dark);
+}
+
+/* 1. TOPO E CAPA */
+.profile-header {
+    background-color: var(--dark-blue);
+    background-image: linear-gradient(135deg, #1e3c72, var(--dark-blue)); 
+    color: white;
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.header-logo {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.profile-header h2 {
+    font-size: 2.5rem;
+    margin: 10px 0 5px;
+    font-weight: 700;
+}
+
+.profile-header p {
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* 2. CONTEÚDO PRINCIPAL E CENTRALIZAÇÃO */
+.content-wrapper {
+    max-width: 1200px;
+    margin: -30px auto 30px; /* Margem negativa para o conteúdo subir */
+    padding: 0 20px;
+}
+
+/* Botões e Estatísticas */
+.stats-actions-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+.stats-container {
+    display: flex;
+    gap: 30px;
+    background-color: white;
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.stat-item {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.stat-icon {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #f3e5f5;
+    color: #9c27b0;
+}
+
+/* 3. NAVEGAÇÃO DE ABAS */
+.tabs-nav {
+    display: flex;
+    border-bottom: 2px solid #e9ecef;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.tab {
+    text-decoration: none;
+    color: var(--text-muted);
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: color 0.3s;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px; /* Ajuste para sobrepor a linha */
+}
+
+.tab:hover {
+    color: var(--primary-blue);
+}
+
+.tab.active {
+    color: var(--primary-blue);
+    border-bottom-color: var(--primary-blue);
+}
+
+/* LISTA DE PUBLICAÇÕES (FEED) */
+.publication-feed h2 {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.feed-description {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+/* Cartão de Publicação */
+.post-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.post-info strong {
+    font-weight: bold;
+    color: var(--text-dark);
+    display: block;
+}
+
+.post-info {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.post-body h3 {
+    color: var(--primary-blue);
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.post-body p {
+    line-height: 1.5;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.post-footer {
+    display: flex;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e9ecef;
+    gap: 20px;
+}
+
+.action-icon {
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.action-icon:hover {
+    color: var(--primary-blue);
+}
+
+.bookmark {
+    margin-left: auto; 
+}
