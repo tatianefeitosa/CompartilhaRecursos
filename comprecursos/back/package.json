@@ -1,8 +1,8 @@
 {
   "name": "back",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
+  "description": "",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "tsc",
@@ -11,22 +11,24 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "commonjs",
   "dependencies": {
     "bcrypt": "^6.0.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.15.3",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "reflect-metadata": "^0.2.2",
     "sqlite3": "^5.1.7",
-    "typeorm": "^0.3.17",
+    "typeorm": "^0.3.27",
     "zod": "^4.1.12"
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
     "@types/express": "^5.0.5",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/node": "^24.10.1",
+    "@types/node": "^24.10.0",
     "@types/passport-jwt": "^4.0.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.3"
