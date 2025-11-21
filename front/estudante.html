@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil do Estudante – Corvinerva</title>
+<link rel="stylesheet" href="estudante.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="logo-area">
+        <img src="img/corvinerva-sem-fundo.png" alt="Corvinerva" class="logo">
+        <span>Corvinerva</span>
+    </div>
+
+  
+</header>
+
+<!-- PERFIL -->
+<section class="profile-card">
+    <div class="profile-left">
+        <img src="avatar.png" class="profile-avatar" alt="Avatar">
+    </div>
+
+    <div class="profile-info">
+        <h2>Ana Silva <span class="tag">Intermediário</span></h2>
+        <p>Continue evoluindo em sua jornada acadêmica!</p>
+    </div>
+
+    <div class="profile-action">
+        <button class="edit-btn"><i>✏️</i> Editar Perfil</button>
+    </div>
+</section>
+
+<!-- PROGRESSO -->
+<section class="progress-section">
+    <div class="progress-circle">
+        <svg>
+            <circle cx="70" cy="70" r="60"></circle>
+            <circle cx="70" cy="70" r="60" id="progress-bar"></circle>
+        </svg>
+        <div class="progress-value" id="progress-value">68%</div>
+    </div>
+
+    <p class="progress-text">Você está indo muito bem! Continue assim.</p>
+</section>
+
+<!-- ESTATÍSTICAS -->
+<section class="stats">
+    <div class="stat-box">
+        <i class="icon">📚</i>
+        <h3>24</h3>
+        <p>Livros Lidos</p>
+    </div>
+
+    <div class="stat-box">
+        <i class="icon">📝</i>
+        <h3>142</h3>
+        <p>Notas Registradas</p>
+    </div>
+
+    <div class="stat-box">
+        <i class="icon">🔖</i>
+        <h3>37</h3>
+        <p>Materiais Salvos</p>
+    </div>
+</section>
+
+<!-- METAS -->
+<section class="goals">
+    <div class="goals-header">
+        <h2>🎯 Metas de Estudo</h2>
+        <button class="add-goal">+ Adicionar</button>
+    </div>
+
+    <div class="goal-item">
+        <p>Ler 5 livros de filosofia</p>
+        <div class="progress-bar">
+            <div style="width: 60%"></div>
+        </div>
+        <span class="goal-info">3 de 5 concluídos — 60%</span>
+    </div>
+
+    <div class="goal-item">
+        <p>Fazer 20 resumos este mês</p>
+        <div class="progress-bar">
+            <div style="width: 35%"></div>
+        </div>
+        <span class="goal-info">7 de 20 feitos — 35%</span>
+    </div>
+</section>
+
+<!-- PUBLICAÇÕES -->
+<section class="post-section">
+    <h2>🖊️ Suas Publicações</h2>
+
+    <!-- Post exemplo -->
+<!-- Criar publicação -->
+<div class="create-post">
+
+    <textarea placeholder="Compartilhe um novo conteúdo..."></textarea>
+
+    <!-- Área de anexos -->
+    <div class="attachments">
+        <label class="attach-btn">
+            📎
+            <input type="file" hidden>
+        </label>
+
+        <button class="link-btn">🔗</button>
+        <button class="img-btn">🖼️</button>
+        <button class="pdf-btn">📄</button>
+    </div>
+
+    <!-- Preview dos arquivos -->
+    <div class="attachment-preview" id="attachmentPreview">
+        <!-- Arquivos anexados aparecem aqui -->
+    </div>
+
+    <button class="publish-btn">Publicar</button>
+</div>
+
+</section>
+
+<script src="estudante.js
+"></script>
+</body>
+</html>
