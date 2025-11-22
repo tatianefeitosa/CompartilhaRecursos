@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { criarPost, deletarPost, editarPost } from "../controllers/postController";
-import { obterFeed } from "../controllers/feedController";
 import { authMiddleware } from "../middlewares/authMiddleware";
 import { upload } from "../middlewares/upload";
 
@@ -27,8 +26,5 @@ router.put(
 
 /*Listar posts do usuário
 router.get("/usuario/:userId", authMiddleware, listarPostsPorUsuario);*/
-
-// Feed
-router.get("/feed", authMiddleware, obterFeed);
 
 export default router;

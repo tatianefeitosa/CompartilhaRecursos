@@ -1,7 +1,7 @@
 ### Variáveis
 @baseUrl = http://localhost:3000
 @adminToken = token_admin
-@estudanteToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOiJlc3R1ZGFudGUiLCJpYXQiOjE3NjM3NjE1NDAsImV4cCI6MTc2Mzg0Nzk0MH0.fnhC9N8N5d7hdCfEkUrnJAZskbCQmYP6le-tawwAR3Y
+@estudanteToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOiJlc3R1ZGFudGUiLCJpYXQiOjE3NjM3NzY1NzMsImV4cCI6MTc2Mzg2Mjk3M30.6kZzkeTbGWvgIAFrR_GpLmyW5AVdr363FFzuP0-VXiU
 @professorToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJtYXJpYUBlbWFpbC5jb20iLCJyb2xlIjoicHJvZmVzc29yIiwiaWF0IjoxNzYzNzY3MTU0LCJleHAiOjE3NjM4NTM1NTR9.FGqbGLtNH9Ti4Zwg9tLoOu83FfY4ZLUGR_e2dwLxND8
 
 
@@ -172,6 +172,7 @@ DELETE {{baseUrl}}/follow/3
 Authorization: Bearer {{estudanteToken}}
 
 ### ==============================================
+<<<<<<< Updated upstream
 ### TESTES DE VISUALIZAÇÃO 
 ### ==============================================
 
@@ -190,3 +191,9 @@ Authorization: Bearer {{professorToken}}
 # Teste para ver se o nome/foto estão vindo certos
 GET {{baseUrl}}/auth/me
 Authorization: Bearer {{professorToken}}
+=======
+### ESTUDANTE 1 VÊ PUBLICAÇÕES DO PROFESSOR 1
+### ==============================================
+GET {{baseUrl}}/feed
+Authorization: Bearer {{estudanteToken}}
+>>>>>>> Stashed changes
