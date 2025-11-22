@@ -107,12 +107,14 @@ export const editarPost = async (req: Request, res: Response) => {
 };
 
 
-// Deletar post
+// Deletar post (COM LIMPEZA DE ARQUIVOS)
 export const deletarPost = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
 
     const postRepo = AppDataSource.getRepository(Post);
+    
+    // busca do post para saber quem é o autor e QUAIS ARQUIVOS ele tem
     const post = await postRepo.findOne({
       where: { id: Number(id) },
       relations: ["autor"],
@@ -122,14 +124,38 @@ export const deletarPost = async (req: Request, res: Response) => {
 
     const user = req.user as User;
 
+    // verificação de segurança: só o dono deleta
     if (post.autor.id !== user.id) {
       return res.status(403).json({ erro: "Você só pode excluir seus posts." });
     }
 
+    // ---------------------------------------------------------
+    // FAXINA: eemove os arquivos físicos da pasta 'uploads'
+    // ---------------------------------------------------------
+    if (post.arquivos && post.arquivos.length > 0) {
+        post.arquivos.forEach(arquivo => {
+            // __dirname = pasta atual (controllers)
+            // ../../uploads = volta duas pastas e entra em uploads
+            const caminhoArquivo = path.join(__dirname, '../../uploads', arquivo);
+            
+            // se o arquivo existe, apaga ele
+            if (fs.existsSync(caminhoArquivo)) {
+                try {
+                    fs.unlinkSync(caminhoArquivo);
+                } catch (err) {
+                    console.error(`Erro ao apagar arquivo ${arquivo}:`, err);
+                    // não para o erro aqui para garantir que o post seja deletado do banco
+                }
+            }
+        });
+    }
+
+    // depois de limpar os arquivos, apaga o registro do banco
     await postRepo.remove(post);
 
-    return res.json({ mensagem: "Post removido!" });
-  } catch {
+    return res.json({ mensagem: "Post removido e arquivos limpos!" });
+  } catch (error) {
+    console.error(error);
     return res.status(500).json({ erro: "Erro ao excluir post." });
   }
 };
