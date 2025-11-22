@@ -14,10 +14,12 @@ import { Post } from "../entities/Post";
 export const AppDataSource = new DataSource({
   type: "sqlite",
   database: "database.sqlite",
-  synchronize: true, 
+  synchronize: true,
   logging: false,
   entities: [User, TokenBlacklist, Post, Like, Comment, Favorite, Follow, Report],
+  extra: { driver: require("sqlite3") }
 });
+
 
 export const initializeDatabase = async () => {
   try {

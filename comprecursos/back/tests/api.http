@@ -2,7 +2,7 @@
 @baseUrl = http://localhost:3000
 @adminToken = token_admin
 @estudanteToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOiJlc3R1ZGFudGUiLCJpYXQiOjE3NjM3NjE1NDAsImV4cCI6MTc2Mzg0Nzk0MH0.fnhC9N8N5d7hdCfEkUrnJAZskbCQmYP6le-tawwAR3Y
-@professorToken = token_professor
+@professorToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJtYXJpYUBlbWFpbC5jb20iLCJyb2xlIjoicHJvZmVzc29yIiwiaWF0IjoxNzYzNzY3MTU0LCJleHAiOjE3NjM4NTM1NTR9.FGqbGLtNH9Ti4Zwg9tLoOu83FfY4ZLUGR_e2dwLxND8
 
 
 ### ==============================================
@@ -140,5 +140,33 @@ Authorization: Bearer {{estudanteToken}}
 
 
 ### ==============================================
-### ESTUDANTE 1 
+### PROFESSOR 1 POST
 ### ==============================================
+
+### Criar Post (sem arquivos)
+POST {{baseUrl}}/posts
+Authorization: Bearer {{professorToken}}
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="texto"
+
+Meu post com links
+--MyBoundary
+Content-Disposition: form-data; name="links"
+
+["https://google.com", "https://youtube.com"]
+--MyBoundary--
+
+
+### ==============================================
+### ESTUDANTE 1 FOLLOW PROFESSOR 1
+### ==============================================
+
+POST {{baseUrl}}/follow/3
+Authorization: Bearer {{estudanteToken}}
+
+
+### Estudante 1 deixa de seguir Professor 1
+DELETE {{baseUrl}}/follow/3
+Authorization: Bearer {{estudanteToken}}
