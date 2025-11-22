@@ -5,6 +5,24 @@ import { User } from "../entities/user";
 import fs from "fs";
 import path from "path";
 
+export const listarPosts = async (req: Request, res: Response) => {
+  try {
+    const postRepo = AppDataSource.getRepository(Post);
+
+    const posts = await postRepo.find({
+      relations: ["autor", "comentarios", "comentarios.autor", "likes"], 
+      order: { criadoEm: "DESC" }, // mostra os mais recentes primeiro
+    });
+
+    // transformação opcional para facilitar o front (contagem de likes, etc)
+    // mas retornar direto também funciona
+    return res.json(posts);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ erro: "Erro ao buscar posts." });
+  }
+};
+
 // Criar post
 export const criarPost = async (req: Request, res: Response) => {
   try {
@@ -48,7 +66,7 @@ export const editarPost = async (req: Request, res: Response) => {
 
     const post = await postRepo.findOne({
       where: { id: Number(id) },
-      relations: ["autor"],
+      relations: ["autor", "comentarios", "comentarios.autor", "likes"],
     });
 
     if (!post) {
