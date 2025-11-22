@@ -1,129 +1,107 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil | Dra. Ana Carolina</title>
-    <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="professor.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Corvinerna - Perfil do Professor</title>
+    <link rel="stylesheet" href="professor.css">
 </head>
 <body>
 
-    <header class="header">
-    <div class="logo-area">
-        <img src="img/corvinerva-sem-fundo.png" alt="Corvinerva" class="logo">
-        <span>Corvinerva</span>
-    </div>
-        <div class="perfil-btn">
-            <i class="fa-solid fa-user"></i>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="img/corvinerva-sem-fundo.png" alt="Logo">
+            <h1>Corvinerna</h1>
         </div>
     </header>
 
-    <main class="perfil-container">
-        
-        <section class="perfil-card info-basica">
-            <div class="perfil-header">
-                <div class="perfil-avatar">
-                    <img src="avatar_professor.png" alt="Avatar da Dra. Ana Carolina Silva"> 
+    <!-- TOPO DO PERFIL -->
+    <section class="profile-header">
+        <div class="profile-card">
+
+            <div class="profile-left">
+                <img class="avatar" src="avatar.png" alt="Avatar do Professor">
+            </div>
+
+            <div class="profile-right">
+                <div class="profile-name">
+                    <h2>Dra. Ana Carolina Silva</h2>
+                    <span class="verified">✔ Professor Verificado</span>
                 </div>
-                <div class="perfil-detalhes">
-                    <h1 class="professor-nome">Dra. Ana Carolina Silva</h1>
-                    <span class="professor-verificado">
-                        <i class="fa-solid fa-circle-check"></i> Professor Verificado
-                    </span>
-                    <p class="professor-area">Matemática e Redação</p>
+
+                <p class="subject">Matemática e Redação</p>
+
+                <div class="stats">
+                    <div><strong>156</strong><span>Publicações</span></div>
+                    <div><strong>24</strong><span>Playlists</span></div>
+                    <div><strong>3847</strong><span>Seguidores</span></div>
                 </div>
             </div>
 
-            <div class="perfil-estatisticas">
-                <div class="stat-item">
-                    <p class="stat-numero">156</p>
-                    <p class="stat-titulo">Publicações</p>
-                </div>
-                <div class="stat-item">
-                    <p class="stat-numero">24</p>
-                    <p class="stat-titulo">Playlists</p>
-                </div>
-                <div class="stat-item">
-                    <p class="stat-numero">3847</p>
-                    <p class="stat-titulo">Seguidores</p>
-                </div>
-            </div>
-            
-            <div class="perfil-acoes">
-                <h2 class="secao-titulo">Criar Conteúdo</h2>
-                <div class="botoes-conteudo">
-                    <button class="btn-acao btn-primary-acao">
-                        <i class="fa-solid fa-plus"></i> Nova Publicação
-                    </button>
-                    <button class="btn-acao btn-secundaria-acao">
-                        <i class="fa-solid fa-list-ul"></i> Criar Playlist
-                    </button>
-                    <button class="btn-acao btn-secundaria-acao">
-                        <i class="fa-solid fa-calendar-days"></i> Cronograma
-                    </button>
-                    <button class="btn-acao btn-secundaria-acao">
-                        <i class="fa-solid fa-file-lines"></i> Material
-                    </button>
-                </div>
-            </div>
-        </section>
-        
-        <section class="perfil-card detalhes-conteudo">
-            <h2 class="secao-titulo">Sobre o Professor</h2>
-            
-            <div class="detalhes-formacao">
-                <div class="detalhe-item">
-                    <div class="detalhe-icone"><i class="fa-solid fa-graduation-cap"></i></div>
-                    <div class="detalhe-texto">
-                        <p class="detalhe-label">Formação</p>
-                        <p class="detalhe-valor">Doutorado em Matemática - USP</p>
-                    </div>
-                </div>
-                <div class="detalhe-item">
-                    <div class="detalhe-icone"><i class="fa-solid fa-briefcase"></i></div>
-                    <div class="detalhe-texto">
-                        <p class="detalhe-label">Experiência</p>
-                        <p class="detalhe-valor">15 anos de ensino</p>
-                    </div>
-                </div>
-                <div class="detalhe-item">
-                    <div class="detalhe-icone"><i class="fa-solid fa-building"></i></div>
-                    <div class="detalhe-texto">
-                        <p class="detalhe-label">Instituição</p>
-                        <p class="detalhe-valor">Universidade de São Paulo</p>
-                    </div>
-                </div>
+        </div>
+    </section>
+
+    <!-- CRIAÇÃO DE CONTEÚDO -->
+    <section class="create-content">
+        <button class="btn primary">+ Nova Publicação</button>
+        <button class="btn">Criar Playlist</button>
+        <button class="btn">Cronograma</button>
+        <button class="btn">Material</button>
+    </section>
+
+    <!-- SOBRE O PROFESSOR -->
+    <section class="about">
+        <h2>Sobre o Professor</h2>
+
+        <div class="about-info">
+            <div class="item">
+                <span class="icon">🎓</span>
+                <p><strong>Doutorado em Matemática - USP</strong></p>
             </div>
 
-            <p class="detalhes-descricao">
-                Professora especializada em preparação para vestibulares e ENEM, com foco em matemática avançada e técnicas de redação. Desenvolveu metodologias próprias que já aprovaram centenas de alunos nas melhores universidades do país.
-            </p>
-            
-            <div class="abas-navegacao">
-                <button class="aba-item active">Publicações</button>
-                <button class="aba-item">Playlists & Materiais</button>
-                <button class="aba-item">Cronogramas</button>
-                <button class="aba-item">Recomendações</button>
+            <div class="item">
+                <span class="icon">💼</span>
+                <p><strong>15 anos de ensino</strong></p>
             </div>
-            
-            <div class="lista-conteudo">
-                <div class="card-conteudo">
-                    <div class="icone-tipo"><i class="fa-solid fa-file-lines"></i></div>
-                    <div class="conteudo-info">
-                        <p class="conteudo-data">há 2 dias</p>
-                        <h3 class="conteudo-titulo">Função Quadrática: Guia Completo para o ENEM</h3>
-                    </div>
-                </div>
-                <div class="card-conteudo video">
-                    <div class="icone-tipo"><i class="fa-solid fa-video"></i></div>
-                    <div class="conteudo-info">
-                        <p class="conteudo-data">há 5 dias</p>
-                        <h3 class="conteudo-titulo">Como escrever uma introdução perfeita</h3>
-                    </div>
-                </div>
-                </div>
-        </section>
-    </main>
+
+            <div class="item">
+                <span class="icon">🏫</span>
+                <p><strong>Universidade de São Paulo</strong></p>
+            </div>
+        </div>
+
+        <p class="about-text">
+            Professora especializada em preparação para vestibulares e ENEM, com foco
+            em matemática avançada e técnicas de redação. Desenvolveu metodologias
+            próprias que já aprovaram centenas de alunos nas melhores universidades do país.
+        </p>
+    </section>
+
+    <!-- ABA DE PUBLICAÇÕES -->
+    <section class="tabs">
+        <button class="tab active">Publicações</button>
+        <button class="tab">Playlists & Materiais</button>
+        <button class="tab">Cronogramas</button>
+        <button class="tab">Recomendações</button>
+    </section>
+
+    <!-- POSTS -->
+    <section class="posts">
+
+        <div class="post-card">
+            <span class="post-icon">📄</span>
+            <h3>Função Quadrática: Guia Completo para o ENEM</h3>
+            <p class="posted">há 2 dias</p>
+        </div>
+
+        <div class="post-card">
+            <span class="post-icon">🎥</span>
+            <h3>Como escrever uma introdução perfeita</h3>
+            <p class="posted">há 5 dias</p>
+        </div>
+
+    </section>
+
 </body>
 </html>
