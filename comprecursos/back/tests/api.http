@@ -170,3 +170,23 @@ Authorization: Bearer {{estudanteToken}}
 ### Estudante 1 deixa de seguir Professor 1
 DELETE {{baseUrl}}/follow/3
 Authorization: Bearer {{estudanteToken}}
+
+### ==============================================
+### TESTES DE VISUALIZAÇÃO 
+### ==============================================
+
+### 1. Ver o Feed (O que o Estudante vê)
+# Deve mostrar posts de todo mundo (ou de quem ele segue)
+GET {{baseUrl}}/feed
+Authorization: Bearer {{estudanteToken}}
+
+### 2. Ver Todos os Posts (O que o Professor filtra no JS)
+# O endpoint retorna tudo, e o seu front-end (professor.js) filtra só os dele.
+# Use isso para ver se o post que você criou realmente foi salvo.
+GET {{baseUrl}}/posts
+Authorization: Bearer {{professorToken}}
+
+### 3. Ver Perfil do Usuário (Para conferir dados)
+# Teste para ver se o nome/foto estão vindo certos
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{professorToken}}
