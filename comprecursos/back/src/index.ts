@@ -4,7 +4,7 @@ import passport from "./config/passport";
 import { initializeDatabase } from "./config/database";
 import cors from "cors";
 
-// Importar rotas
+// importar rotas
 import authRoutes from "./routes/auth";
 import postRoutes from "./routes/post.routes";
 import commentRoutes from "./routes/comment.routes";
@@ -13,12 +13,10 @@ import favoriteRoutes from "./routes/favorite.routes";
 import followRoutes from "./routes/follow.routes";
 import reportRoutes from "./routes/report.routes";
 
-
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middlewares
+// middlewares
 app.use(cors());
 app.use(express.json());
 app.use(passport.initialize());
@@ -32,11 +30,9 @@ app.use("/likes", likeRoutes);
 app.use("/favorites", favoriteRoutes);
 app.use("/follows", followRoutes);
 app.use("/reports", reportRoutes);
-app.use("/feed", postRoutes); // Rota para feed de posts
+app.use("/feed", postRoutes);
 
-
-
-// Rota raiz
+// rota raiz
 app.get("/", (req, res) => {
   res.json({
     mensagem: "API REST - Sistema de Compartilhamento de Recursos com TypeORM",
@@ -50,7 +46,6 @@ app.get("/", (req, res) => {
       follows: "/follows (seguir, deixar de seguir usuários)",
       reports: "/reports (reportar conteúdo impróprio)",
       feed: "/feed (obter feed de posts dos usuários seguidos)",
-      
     },
     roles: {
       estudante: "Compartilha, cria e interage com publicações",
@@ -60,7 +55,6 @@ app.get("/", (req, res) => {
   });
 });
 
-// Inicializar banco e servidor
 const startServer = async () => {
   await initializeDatabase();
 
@@ -70,4 +64,11 @@ const startServer = async () => {
   });
 };
 
-startServer();
+// só inicia o servidor se este arquivo for executado diretamente (node index.ts)
+// se for importado pelos testes (jest), não inicia automaticamente
+if (require.main === module) {
+    startServer();
+}
+
+// exporta o app para ser usado nos testes de integração
+export { app };
