@@ -117,10 +117,17 @@ async function carregarMeusPosts() {
 
         meusPosts.forEach(post => {
             const html = `
-            <div class="post-card">
+            <div class="post-card" style="position: relative;">
+                
+                <button onclick="deletarPost(${post.id})" 
+                        style="position: absolute; top: 15px; right: 15px; border: none; background: none; cursor: pointer; font-size: 1.2em;" 
+                        title="Excluir publicação">
+                    🗑️
+                </button>
+
                 <span class="post-icon">📄</span>
                 <div>
-                    <h3>${post.texto.substring(0, 50)}...</h3>
+                    <h3>${post.texto ? post.texto.substring(0, 50) : 'Sem texto'}...</h3>
                     <p class="posted">
                         ${post.arquivo ? '📎 Com anexo' : ''} 
                         ${post.links ? '🔗 Com links' : ''}
@@ -135,3 +142,30 @@ async function carregarMeusPosts() {
         console.error("Erro ao carregar posts", error);
     }
 }
+
+// --- LÓGICA DE DELETAR POST ---
+window.deletarPost = async (id) => {
+    if (!confirm("Tem certeza que deseja excluir esta publicação? Essa ação não pode ser desfeita.")) {
+        return;
+    }
+
+    const token = localStorage.getItem("token");
+
+    try {
+        const response = await fetch(`${API_URL}/posts/${id}`, {
+            method: "DELETE",
+            headers: { "Authorization": `Bearer ${token}` }
+        });
+
+        if (response.ok) {
+            alert("Post excluído com sucesso!");
+            carregarMeusPosts(); // recarrega a lista para sumir com o post
+        } else {
+            const err = await response.json();
+            alert("Erro: " + (err.erro || "Não foi possível excluir"));
+        }
+    } catch (error) {
+        console.error(error);
+        alert("Erro de conexão");
+    }
+};

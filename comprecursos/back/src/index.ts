@@ -1,3 +1,4 @@
+import fs from "fs";
 import "reflect-metadata";
 import express from "express";
 import passport from "./config/passport";
@@ -57,6 +58,13 @@ app.get("/", (req, res) => {
 
 const startServer = async () => {
   await initializeDatabase();
+
+  // --- VERIFICAÇÃO DE SEGURANÇA ---
+  // cria a pasta uploads se ela não existir
+  if (!fs.existsSync("uploads")) {
+      fs.mkdirSync("uploads");
+  }
+  // --------------------------------
 
   app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);

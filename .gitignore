@@ -3,3 +3,7 @@
 *.sqlite3
 node_modules
 dist
+
+# Ignorar arquivos de upload, mas manter a pasta
+uploads/*
+!uploads/.gitkeep
