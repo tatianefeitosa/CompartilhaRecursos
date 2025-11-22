@@ -28,7 +28,7 @@ app.use("/posts", postRoutes);
 app.use("/comments", commentRoutes);
 app.use("/likes", likeRoutes);
 app.use("/favorites", favoriteRoutes);
-app.use("/follows", followRoutes);
+app.use("/follow", followRoutes);
 app.use("/reports", reportRoutes);
 app.use("/feed", postRoutes);
 
