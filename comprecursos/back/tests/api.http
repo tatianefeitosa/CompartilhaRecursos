@@ -1,8 +1,12 @@
 ### Variáveis
 @baseUrl = http://localhost:3000
-@adminToken = token_admin
+
 # Lembre-se de atualizar os tokens abaixo fazendo login!
-@estudanteToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOiJlc3R1ZGFudGUiLCJpYXQiOjE3NjM3NzY1NzMsImV4cCI6MTc2Mzg2Mjk3M30.6kZzkeTbGWvgIAFrR_GpLmyW5AVdr363FFzuP0-VXiU
+
+@adminToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjQxMjk2MTQsImV4cCI6MTc2NDIxNjAxNH0.F5Jn986zgYbWWVhc5m1KnN5J3m0EhaOvNLkccgPOSiw
+
+@estudanteToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOiJlc3R1ZGFudGUiLCJpYXQiOjE3NjQxMjk4NTksImV4cCI6MTc2NDIxNjI1OX0.vHy5WyepwZ-3dmcJgXdzI-PJt_llkD8QVmbqgKNj5AE
+
 @professorToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJtYXJpYUBlbWFpbC5jb20iLCJyb2xlIjoicHJvZmVzc29yIiwiaWF0IjoxNzYzNzY3MTU0LCJleHAiOjE3NjM4NTM1NTR9.FGqbGLtNH9Ti4Zwg9tLoOu83FfY4ZLUGR_e2dwLxND8
 
 
@@ -70,7 +74,7 @@ Content-Type: application/json
   "senha": "senha123"
 }
 
-### Logout
+### Logout (Admin)
 POST {{baseUrl}}/auth/logout
 Authorization: Bearer {{adminToken}}
 
