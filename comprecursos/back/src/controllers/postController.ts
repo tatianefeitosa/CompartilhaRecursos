@@ -5,6 +5,7 @@ import { User } from "../entities/user";
 import fs from "fs";
 import path from "path";
 
+// Listar todos os posts
 export const listarPosts = async (req: Request, res: Response) => {
   try {
     const postRepo = AppDataSource.getRepository(Post);
@@ -22,6 +23,28 @@ export const listarPosts = async (req: Request, res: Response) => {
     return res.status(500).json({ erro: "Erro ao buscar posts." });
   }
 };
+
+
+// Listar meus posts
+export const listarMeusPosts = async (req: Request, res: Response) => {
+  try {
+    const user = req.user as User;
+
+    const postRepo = AppDataSource.getRepository(Post);
+
+    const meusPosts = await postRepo.find({
+      where: { autor: { id: user.id } },
+      relations: ["autor", "comentarios", "comentarios.autor", "likes"],
+      order: { criadoEm: "DESC" },
+    });
+
+    return res.json(meusPosts);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ erro: "Erro ao buscar seus posts." });
+  }
+};
+
 
 // Criar post
 export const criarPost = async (req: Request, res: Response) => {
@@ -54,6 +77,7 @@ export const criarPost = async (req: Request, res: Response) => {
     return res.status(500).json({ erro: "Erro ao criar post." });
   }
 };
+
 
 // Editar post
 export const editarPost = async (req: Request, res: Response) => {
@@ -148,7 +172,7 @@ export const deletarPost = async (req: Request, res: Response) => {
     }
 
     // ---------------------------------------------------------
-    // FAXINA: eemove os arquivos físicos da pasta 'uploads'
+    // FAXINA: remove os arquivos físicos da pasta 'uploads'
     // ---------------------------------------------------------
     if (post.arquivos && post.arquivos.length > 0) {
         post.arquivos.forEach(arquivo => {

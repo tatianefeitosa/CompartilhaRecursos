@@ -24,8 +24,8 @@ export const obterFeed = async (req: Request, res: Response) => {
       .map((f) => f.seguido?.id)
       .filter((id): id is number => typeof id === "number");
 
-    // sempre incluir os próprios posts do usuário no feed
-    const ids = Array.from(new Set([user.id, ...idsSeguidos]));
+    // não incluir posts do próprio usuário no feed
+    const ids = idsSeguidos;
 
     if (ids.length === 0) return res.json([]);
 

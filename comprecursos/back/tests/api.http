@@ -3,11 +3,11 @@
 
 # Lembre-se de atualizar os tokens abaixo fazendo login!
 
-@adminToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjQxMjk2MTQsImV4cCI6MTc2NDIxNjAxNH0.F5Jn986zgYbWWVhc5m1KnN5J3m0EhaOvNLkccgPOSiw
+@adminToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjQxMzAxNTYsImV4cCI6MTc2NDIxNjU1Nn0.cTBBUHKRTglH59kAUXnu_MPmJje6xOsBFK-_wbkyvJc
 
-@estudanteToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOiJlc3R1ZGFudGUiLCJpYXQiOjE3NjQxMjk4NTksImV4cCI6MTc2NDIxNjI1OX0.vHy5WyepwZ-3dmcJgXdzI-PJt_llkD8QVmbqgKNj5AE
+@estudanteToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOiJlc3R1ZGFudGUiLCJpYXQiOjE3NjQxMzIyNDcsImV4cCI6MTc2NDIxODY0N30.JkmiqjLZeQjqSsjkNa4MbTbeZVL_TECkoLYz2sT1NRg
 
-@professorToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJtYXJpYUBlbWFpbC5jb20iLCJyb2xlIjoicHJvZmVzc29yIiwiaWF0IjoxNzYzNzY3MTU0LCJleHAiOjE3NjM4NTM1NTR9.FGqbGLtNH9Ti4Zwg9tLoOu83FfY4ZLUGR_e2dwLxND8
+@professorToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJtYXJpYUBlbWFpbC5jb20iLCJyb2xlIjoicHJvZmVzc29yIiwiaWF0IjoxNzY0MTMwMTkyLCJleHAiOjE3NjQyMTY1OTJ9.xnBWKK_j5bGRmSWKvCAvMbPVdbpRR0D2BIWPmiph2UE
 
 
 ### ==============================================
@@ -137,8 +137,39 @@ Texto atualizado do post!
 --MyBoundary--
 
 ### Deletar Post
-DELETE {{baseUrl}}/posts/2
+DELETE {{baseUrl}}/posts/3
 Authorization: Bearer {{estudanteToken}}
+
+
+### Criar Post (Professor)
+POST {{baseUrl}}/posts
+Authorization: Bearer {{professorToken}}
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="texto"
+
+Abaixo disponibilizo alguns links úteis para vocês:
+--MyBoundary
+Content-Disposition: form-data; name="links"
+
+["https://google.com", "https://youtube.com"]
+--MyBoundary--
+
+### Criar Post (Professor)
+POST {{baseUrl}}/posts
+Authorization: Bearer {{professorToken}}
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="texto"
+
+Novos conteúdos para estudo:
+--MyBoundary
+Content-Disposition: form-data; name="links"
+
+["https://notion.com", "https://discord.com"]
+--MyBoundary--
 
 
 ### ==============================================
@@ -153,13 +184,13 @@ Authorization: Bearer {{estudanteToken}}
 DELETE {{baseUrl}}/follow/3
 Authorization: Bearer {{estudanteToken}}
 
-### 1. Ver o Feed (Visão do Estudante)
+### 1. Ver o Feed (Apenas vê posts de Perfis que segue)
 GET {{baseUrl}}/feed
 Authorization: Bearer {{estudanteToken}}
 
-### 2. Ver Todos os Posts (Visão do Professor/Filtro)
-GET {{baseUrl}}/posts
-Authorization: Bearer {{professorToken}}
+### 2. Ver os Meus Posts
+GET {{baseUrl}}/posts/meus-posts
+Authorization: Bearer {{estudanteToken}}  
 
 ### 3. Ver Perfil do Usuário
 GET {{baseUrl}}/auth/me
