@@ -62,18 +62,17 @@ export const removerLike = async (req: Request, res: Response) => {
 };
 
 
-export const listarLikesDoPost = async (req: Request, res: Response) => {
+export const listarLikesPost = async (req: Request, res: Response) => {
   try {
     const { postId } = req.params;
 
     const likeRepo = AppDataSource.getRepository(Like);
 
-    const likes = await likeRepo.find({
+    const likeTotal = await likeRepo.count({
       where: { post: { id: Number(postId) } },
-      relations: ["usuario"],
     });
 
-    return res.json({ total: likes.length, likes });
+    return res.json({ likeTotal });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ erro: "Erro ao listar likes." });

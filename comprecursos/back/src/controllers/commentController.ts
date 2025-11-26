@@ -60,3 +60,21 @@ export const deletarComentario = async (req: Request, res: Response) => {
     return res.status(500).json({ erro: "Erro ao excluir comentário." });
   }
 };
+
+// listar comentarios de um post
+export const listarComentarios = async (req: Request, res: Response) => {
+  try {
+    const { postId } = req.params;
+
+    const commentRepo = AppDataSource.getRepository(Comment);
+    const comentarios = await commentRepo.find({
+      where: { post: { id: Number(postId) } },
+      relations: ["autor"],
+      order: { criadoEm: "ASC" },
+    });
+
+    return res.json(comentarios);
+  } catch {
+    return res.status(500).json({ erro: "Erro ao listar comentários." });
+  }
+};

@@ -10,7 +10,7 @@ const router = Router();
 router.post("/:postId", authMiddleware, denunciarPost);
 
 /* Listar denúncias (somente admin)
-router.get("/", authorize, adminMiddleware, listarDenuncias);
+router.get("/", adminMiddleware, listarDenuncias);
 */
 
 export default router;

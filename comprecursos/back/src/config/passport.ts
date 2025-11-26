@@ -14,16 +14,19 @@ const SECRET_KEY = process.env.JWT_SECRET || "sua-chave-secreta-super-segura";
 const options: StrategyOptions = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: SECRET_KEY,
+  passReqToCallback: true,
 };
 
 passport.use(
-  new JwtStrategy(options, async (payload, done) => {
+  new JwtStrategy(options, async (req, payload, done) => {
     try {
+      const token = req.headers.authorization?.split(" ")[1];
+
       // Verificar se o token está na blacklist
       const blacklistedToken = await AppDataSource.getRepository(
         TokenBlacklist
       ).findOne({
-        where: { token: payload.token },
+        where: { token },
       });
 
       if (blacklistedToken) {

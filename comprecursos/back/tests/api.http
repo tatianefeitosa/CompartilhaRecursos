@@ -173,7 +173,7 @@ Content-Disposition: form-data; name="links"
 
 
 ### ==============================================
-### INTERAÇÕES E VISUALIZAÇÃO
+### INTERAÇÕES COM USUÁRIOS E POSTS
 ### ==============================================
 
 ### Seguir Usuário
@@ -184,6 +184,7 @@ Authorization: Bearer {{estudanteToken}}
 DELETE {{baseUrl}}/follow/3
 Authorization: Bearer {{estudanteToken}}
 
+
 ### 1. Ver o Feed (Apenas vê posts de Perfis que segue)
 GET {{baseUrl}}/feed
 Authorization: Bearer {{estudanteToken}}
@@ -192,6 +193,90 @@ Authorization: Bearer {{estudanteToken}}
 GET {{baseUrl}}/posts/meus-posts
 Authorization: Bearer {{estudanteToken}}  
 
-### 3. Ver Perfil do Usuário
+### 3. Ver Perfil do Usuário (Estudante)
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{estudanteToken}}
+
+### 3.1. Ver Perfil do Usuário (Professor)
 GET {{baseUrl}}/auth/me
 Authorization: Bearer {{professorToken}}
+
+
+### Comentar em Post
+POST {{baseUrl}}/comments/5
+Authorization: Bearer {{estudanteToken}}
+Content-Type: application/json  
+
+{
+  "texto": "Ótimo post! Muito útil, obrigado por compartilhar."
+}
+
+### Deletar Comentário
+DELETE {{baseUrl}}/comments/2
+Authorization: Bearer {{estudanteToken}}
+
+
+### Comentar em Post
+POST {{baseUrl}}/comments/5
+Authorization: Bearer {{estudanteToken}}
+Content-Type: application/json  
+
+{
+  "texto": "Tenho uma dúvida sobre o segundo link que você compartilhou."
+}
+
+### Listar Comentários do Post
+GET {{baseUrl}}/comments/post/5
+Authorization: Bearer {{professorToken}} 
+
+### Responder Comentários em Post
+POST {{baseUrl}}/comments/5
+Authorization: Bearer {{professorToken}}
+Content-Type: application/json  
+
+{
+  "texto": "Olá João! Qual é a sua dúvida? Posso ajudar."
+}
+
+### Curtir Post
+POST {{baseUrl}}/likes/5
+Authorization: Bearer {{estudanteToken}}
+
+### Descurtir Post
+DELETE {{baseUrl}}/likes/5
+Authorization: Bearer {{estudanteToken}}
+
+### Listar Likes do Post
+GET {{baseUrl}}/likes/5
+Authorization: Bearer {{professorToken}}
+
+
+### ==============================================
+### POSTS FAVORITOS
+### ==============================================
+
+### Favoritar Post
+POST {{baseUrl}}/favorites/5
+Authorization: Bearer {{estudanteToken}}
+
+### Remover Post dos Favoritos
+DELETE {{baseUrl}}/favorites/5
+Authorization: Bearer {{estudanteToken}}
+
+### Listar Posts Favoritos
+GET {{baseUrl}}/favorites
+Authorization: Bearer {{estudanteToken}}
+
+
+### ==============================================
+### DENUNCIAR POSTS
+### ==============================================
+
+### Denunciar Post
+POST {{baseUrl}}/reports/5
+Authorization: Bearer {{estudanteToken}}
+Content-Type: application/json  
+
+{
+  "motivo": "Conteúdo inapropriado"
+} 

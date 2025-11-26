@@ -134,18 +134,28 @@ export const logout = async (req: Request, res: Response) => {
   }
 };
 
+
+// --------------------- MEU PERFIL ---------------------
 export const getProfile = async (req: Request, res: Response) => {
   try {
-    // O passport já coloca o usuário dentro de req.user
-    const user = req.user as User; 
-    
-    return res.json({
-      id: user.id,
-      nome: user.nome,
-      email: user.email,
-      role: user.role
+    // req.user é inserido pelo Passport JWT
+    const userJwtData = req.user as { id: number };
+
+    // Buscar usuário completo no banco
+    const userRepository = AppDataSource.getRepository(User);
+    const user = await userRepository.findOne({
+      where: { id: userJwtData.id },
+      select: ["id", "nome", "email", "role"],
     });
+
+    if (!user) {
+      return res.status(404).json({ erro: "Usuário não encontrado" });
+    }
+
+    return res.json(user);
+
   } catch (error) {
-    return res.status(500).json({ erro: "Erro ao buscar perfil." });
+    console.error("Erro em getProfile:", error);
+    return res.status(500).json({ erro: "Erro interno no servidor" });
   }
 };
