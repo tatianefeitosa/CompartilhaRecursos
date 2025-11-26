@@ -133,3 +133,19 @@ export const logout = async (req: Request, res: Response) => {
     return res.status(500).json({ erro: "Erro ao fazer logout" });
   }
 };
+
+export const getProfile = async (req: Request, res: Response) => {
+  try {
+    // O passport já coloca o usuário dentro de req.user
+    const user = req.user as User; 
+    
+    return res.json({
+      id: user.id,
+      nome: user.nome,
+      email: user.email,
+      role: user.role
+    });
+  } catch (error) {
+    return res.status(500).json({ erro: "Erro ao buscar perfil." });
+  }
+};

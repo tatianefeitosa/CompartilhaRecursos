@@ -1,7 +1,8 @@
 ### Variáveis
 @baseUrl = http://localhost:3000
 @adminToken = token_admin
-@estudanteToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJjaW50aWFAZW1haWwuY29tIiwicm9sZSI6ImVzdHVkYW50ZSIsImlhdCI6MTc2Mzc4Mjc2OCwiZXhwIjoxNzYzODY5MTY4fQ.CKKLqIgZDhqJm6z4pABR0yE7s3KktXJj_52hQH3Yvn4
+# Lembre-se de atualizar os tokens abaixo fazendo login!
+@estudanteToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOiJlc3R1ZGFudGUiLCJpYXQiOjE3NjM3NzY1NzMsImV4cCI6MTc2Mzg2Mjk3M30.6kZzkeTbGWvgIAFrR_GpLmyW5AVdr363FFzuP0-VXiU
 @professorToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJtYXJpYUBlbWFpbC5jb20iLCJyb2xlIjoicHJvZmVzc29yIiwiaWF0IjoxNzYzNzY3MTU0LCJleHAiOjE3NjM4NTM1NTR9.FGqbGLtNH9Ti4Zwg9tLoOu83FfY4ZLUGR_e2dwLxND8
 
 
@@ -9,94 +10,73 @@
 ### AUTENTICAÇÃO
 ### ==============================================
 
-### Registrar Admin 1
+### Registrar Admin
 POST {{baseUrl}}/auth/registro
 Content-Type: application/json
 
 {
-"nome": "Admin Sistema",
-"email": "admin@email.com",
-"senha": "admin123",
-"role": "admin"
+  "nome": "Admin Sistema",
+  "email": "admin@email.com",
+  "senha": "admin123",
+  "role": "admin"
 }
 
-### Registrar Estudante 1
+### Registrar Estudante
 POST {{baseUrl}}/auth/registro
 Content-Type: application/json
 
 {
-"nome": "João Silva",
-"email": "joao@email.com",
-"senha": "senha123",
-"role": "estudante"
+  "nome": "João Silva",
+  "email": "joao@email.com",
+  "senha": "senha123",
+  "role": "estudante"
 }
 
-### Registrar Estudante 2
+### Registrar Professor
 POST {{baseUrl}}/auth/registro
 Content-Type: application/json
 
 {
-"nome": "Cintia Pereira",
-"email": "cintia@email.com",
-"senha": "senha123",
-"role": "estudante"
+  "nome": "Maria Santos",
+  "email": "maria@email.com",
+  "senha": "senha123",
+  "role": "professor"
 }
 
-### Registrar Professor 1
-POST {{baseUrl}}/auth/registro
-Content-Type: application/json
-
-{
-"nome": "Maria Santos",
-"email": "maria@email.com",
-"senha": "senha123",
-"role": "professor"
-}
-
-### Login Admin 1
+### Login Admin
 POST {{baseUrl}}/auth/login
 Content-Type: application/json
 
 {
-"email": "admin@email.com",
-"senha": "admin123"
+  "email": "admin@email.com",
+  "senha": "admin123"
 }
 
-### Login Estudante 1
+### Login Estudante
 POST {{baseUrl}}/auth/login
 Content-Type: application/json
 
 {
-"email": "joao@email.com",
-"senha": "senha123"
+  "email": "joao@email.com",
+  "senha": "senha123"
 }
 
-### Login Estudante 2
+### Login Professor
 POST {{baseUrl}}/auth/login
 Content-Type: application/json
 
 {
-"email": "cintia@email.com",
-"senha": "senha123"
+  "email": "maria@email.com",
+  "senha": "senha123"
 }
 
-### Login Professor 1
-POST {{baseUrl}}/auth/login
-Content-Type: application/json
-
-{
-"email": "maria@email.com",
-"senha": "senha123"
-}
-
-
-### Logout Admin 1
+### Logout
 POST {{baseUrl}}/auth/logout
 Authorization: Bearer {{adminToken}}
 
 
 ### ==============================================
-### ESTUDANTE 1 POST
+### POSTS (CRUD)
 ### ==============================================
 
 ### Criar Post (sem arquivos)
@@ -141,7 +121,7 @@ Content-Type: application/pdf
 --MyBoundary--
 
 
-### Editar Post (atualizar texto, links e enviar novos arquivos)
+### Editar Post
 PUT  {{baseUrl}}/posts/1
 Authorization: Bearer {{estudanteToken}}
 Content-Type: multipart/form-data; boundary=MyBoundary
@@ -156,57 +136,27 @@ Texto atualizado do post!
 DELETE {{baseUrl}}/posts/2
 Authorization: Bearer {{estudanteToken}}
 
-### ==============================================
-
 
 ### ==============================================
-### PROFESSOR 1 POST
+### INTERAÇÕES E VISUALIZAÇÃO
 ### ==============================================
 
-### Criar Post (sem arquivos)
-POST {{baseUrl}}/posts
-Authorization: Bearer {{professorToken}}
-Content-Type: multipart/form-data; boundary=MyBoundary
-
---MyBoundary
-Content-Disposition: form-data; name="texto"
-
-Meu post com links
---MyBoundary
-Content-Disposition: form-data; name="links"
-
-["https://google.com", "https://youtube.com"]
---MyBoundary--
-
-
-### ==============================================
-### ESTUDANTE 1 FOLLOW PROFESSOR 1
-### ==============================================
-
+### Seguir Usuário
 POST {{baseUrl}}/follow/3
 Authorization: Bearer {{estudanteToken}}
 
-
-### Estudante 1 deixa de seguir Professor 1
+### Deixar de Seguir
 DELETE {{baseUrl}}/follow/3
 Authorization: Bearer {{estudanteToken}}
 
-### ==============================================
-### TESTES DE VISUALIZAÇÃO 
-### ==============================================
-
-### 1. Ver o Feed (O que o Estudante vê)
-# Deve mostrar posts de todo mundo (ou de quem ele segue)
+### 1. Ver o Feed (Visão do Estudante)
 GET {{baseUrl}}/feed
 Authorization: Bearer {{estudanteToken}}
 
-### 2. Ver Todos os Posts (O que o Professor filtra no JS)
-# O endpoint retorna tudo, e o seu front-end (professor.js) filtra só os dele.
-# Use isso para ver se o post que você criou realmente foi salvo.
+### 2. Ver Todos os Posts (Visão do Professor/Filtro)
 GET {{baseUrl}}/posts
 Authorization: Bearer {{professorToken}}
 
-### 3. Ver Perfil do Usuário (Para conferir dados)
-# Teste para ver se o nome/foto estão vindo certos
+### 3. Ver Perfil do Usuário
 GET {{baseUrl}}/auth/me
 Authorization: Bearer {{professorToken}}

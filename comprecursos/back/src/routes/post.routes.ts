@@ -1,30 +1,19 @@
 import { Router } from "express";
-import { criarPost, deletarPost, editarPost } from "../controllers/postController";
-import { authMiddleware } from "../middlewares/authMiddleware";
-import { upload } from "../middlewares/upload";
+import passport from "passport";
+import { criarPost, editarPost, deletarPost, listarPosts } from "../controllers/postController";
+import { upload } from "../config/multer"; 
 
 const router = Router();
 
-// múltiplos arquivos
-router.post(
-  "/",
-  authMiddleware,
-  upload.array("arquivos", 5),
-  criarPost
-);
+// Protege todas as rotas com JWT
+router.use(passport.authenticate("jwt", { session: false }));
 
-// Deletar post
-router.delete("/:id", authMiddleware, deletarPost);
+// Rota GET (Listar)
+router.get("/", listarPosts);
 
-// Editar post
-router.put(
-  "/:id",
-  authMiddleware,
-  upload.array("arquivos", 5),
-  editarPost
-);
-
-/*Listar posts do usuário
-router.get("/usuario/:userId", authMiddleware, listarPostsPorUsuario);*/
+// Rotas existentes
+router.post("/", upload.array("arquivos"), criarPost);
+router.put("/:id", upload.array("arquivos"), editarPost);
+router.delete("/:id", deletarPost);
 
 export default router;
