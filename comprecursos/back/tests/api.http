@@ -1,7 +1,7 @@
 ### Variáveis
 @baseUrl = http://localhost:3000
 @adminToken = token_admin
-@estudanteToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOiJlc3R1ZGFudGUiLCJpYXQiOjE3NjM3NzY1NzMsImV4cCI6MTc2Mzg2Mjk3M30.6kZzkeTbGWvgIAFrR_GpLmyW5AVdr363FFzuP0-VXiU
+@estudanteToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJjaW50aWFAZW1haWwuY29tIiwicm9sZSI6ImVzdHVkYW50ZSIsImlhdCI6MTc2Mzc4Mjc2OCwiZXhwIjoxNzYzODY5MTY4fQ.CKKLqIgZDhqJm6z4pABR0yE7s3KktXJj_52hQH3Yvn4
 @professorToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJtYXJpYUBlbWFpbC5jb20iLCJyb2xlIjoicHJvZmVzc29yIiwiaWF0IjoxNzYzNzY3MTU0LCJleHAiOjE3NjM4NTM1NTR9.FGqbGLtNH9Ti4Zwg9tLoOu83FfY4ZLUGR_e2dwLxND8
 
 
@@ -27,6 +27,17 @@ Content-Type: application/json
 {
 "nome": "João Silva",
 "email": "joao@email.com",
+"senha": "senha123",
+"role": "estudante"
+}
+
+### Registrar Estudante 2
+POST {{baseUrl}}/auth/registro
+Content-Type: application/json
+
+{
+"nome": "Cintia Pereira",
+"email": "cintia@email.com",
 "senha": "senha123",
 "role": "estudante"
 }
@@ -57,6 +68,15 @@ Content-Type: application/json
 
 {
 "email": "joao@email.com",
+"senha": "senha123"
+}
+
+### Login Estudante 2
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+"email": "cintia@email.com",
 "senha": "senha123"
 }
 
@@ -172,7 +192,6 @@ DELETE {{baseUrl}}/follow/3
 Authorization: Bearer {{estudanteToken}}
 
 ### ==============================================
-<<<<<<< Updated upstream
 ### TESTES DE VISUALIZAÇÃO 
 ### ==============================================
 
@@ -191,9 +210,3 @@ Authorization: Bearer {{professorToken}}
 # Teste para ver se o nome/foto estão vindo certos
 GET {{baseUrl}}/auth/me
 Authorization: Bearer {{professorToken}}
-=======
-### ESTUDANTE 1 VÊ PUBLICAÇÕES DO PROFESSOR 1
-### ==============================================
-GET {{baseUrl}}/feed
-Authorization: Bearer {{estudanteToken}}
->>>>>>> Stashed changes

@@ -1,4 +1,3 @@
-import fs from "fs";
 import "reflect-metadata";
 import express from "express";
 import passport from "./config/passport";
@@ -34,49 +33,6 @@ app.use("/follow", followRoutes);
 app.use("/reports", reportRoutes);
 app.use("/feed", feedRoutes);
 
-// debug temporário — remova depois
-console.log("feedRoutes export:", feedRoutes);
-console.log("feedRoutes typeof:", typeof feedRoutes);
-console.log(
-  "feedRoutes.stack length:",
-  (feedRoutes as any).stack?.length ?? "=== no stack ==="
-);
-console.log(
-  "feedRoutes.routes:",
-  (feedRoutes as any).stack
-    ?.filter((l: any) => l.route)
-    .map((l: any) => ({
-      path: l.route.path,
-      methods: Object.keys(l.route.methods),
-    })) ?? []
-);
-
-// rota de teste direta para confirmar montagem do prefixo /feed
-app.get("/feed/ping", (_req, res) => res.json({ ok: true }));
-
-// DEBUG temporário: verificar objetos importados e rotas registradas
-console.log("feedRoutes definido?", !!feedRoutes);
-console.log("Tipo de feedRoutes:", typeof feedRoutes);
-// @ts-ignore
-console.log(
-  "app._router presente após registrar rotas?",
-  !!app._router,
-  "stack length:",
-  app._router?.stack?.length
-);
-
-// rota de depuração que lista rotas registradas
-app.get("/__routes_debug", (req, res) => {
-  // @ts-ignore
-  const routes = app._router?.stack
-    .filter((r: any) => r.route)
-    .map((r: any) => ({
-      methods: Object.keys(r.route.methods),
-      path: r.route.path,
-    }));
-  res.json({ routes });
-});
-
 // rota raiz
 app.get("/", (req, res) => {
   res.json({
@@ -103,24 +59,8 @@ app.get("/", (req, res) => {
 const startServer = async () => {
   await initializeDatabase();
 
-  // --- VERIFICAÇÃO DE SEGURANÇA ---
-  // cria a pasta uploads se ela não existir
-  if (!fs.existsSync("uploads")) {
-      fs.mkdirSync("uploads");
-  }
-  // --------------------------------
-
   app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
-    // debug: listar rotas registradas
-    // @ts-ignore
-    const routes = app._router?.stack
-      .filter((r: any) => r.route)
-      .map(
-        (r: any) =>
-          Object.keys(r.route.methods)[0].toUpperCase() + " " + r.route.path
-      );
-    console.log("Rotas:", routes);
     console.log(`Use o arquivo tests/api.http para testar os endpoints`);
   });
 };
@@ -128,7 +68,7 @@ const startServer = async () => {
 // só inicia o servidor se este arquivo for executado diretamente (node index.ts)
 // se for importado pelos testes (jest), não inicia automaticamente
 if (require.main === module) {
-  startServer();
+    startServer();
 }
 
 // exporta o app para ser usado nos testes de integração
